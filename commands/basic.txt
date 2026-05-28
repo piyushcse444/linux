@@ -1,0 +1,137 @@
+1) echo hello world
+2) echo $shell -> show current shell name -> /bin/bash
+3) pwd -> print working directory
+4) cd -> change directory 
+        /path -> absulote path
+        path  -> relative path
+        . (current directory): Represents the directory you are currently in.
+                ./bts.bash	Runs file from current directory
+                bts.bash	Searches PATH; may fail if current directory not in PATH
+        .. (parent directory): Moves you one level up to the directory containing your current one.
+        ~ (home directory): A shortcut to your personal home directory, like /home/pete.
+        - (previous directory): Takes you back to the last directory you were in.
+
+5) ls -> list directory 
+        ls -> show list of file and directory in current directory
+        ls path -> show list of files and directory of that path
+        ls -a -> show hidden files (stands for all)
+        ls -l -> details lsit of file in long formate 
+                file permissions, number of links, owner name, owner group, file size, 
+                timestamp of last modification, and the file or directory name.
+                eg :- drwxr-x--- 7 pete penguingroup   4096 Nov 20 16:37 Desktop
+        ls -r -> show sorting alphabetical in reverse order
+        ls -t -> sort by modified time -> newest file first
+        ls -h -> shows human readable size -> only work with -l
+
+6) touch -> create new file or modify existing file timestamp
+            touch new_file -> create new_file
+            touch existing_file -> change last modified timestamp of that existing_file
+            touch -r file1.txt file2.txt -> # Set file2.txt's timestamp to match file1.txt's timestamp
+            touch -d "2023-01-01 12:30:00" file.txt -># Set the timestamp to a specific date and time 
+
+7) file  file_name-> to know which kind of file it is            
+
+8) cat  -> conacte and print the file in console
+         cat file.txt -> print content of file in terminal
+         cat file1.txt file2.txt -> print concatination of both file -> first -> file1.txt -> file2.txt
+         cat -n file.txt -> add number starting from 1 to each line
+         cat -b file.txt -> only add number in no empty line
+         man cat  -> show manual for cat command
+
+9) head -n x file_name -> shows only starting x lines of content in file         
+
+10) tail -n x file_name -> shows only last x lines of content in file
+
+11)  less file_name -> shows file content in a tab
+                    h -> to open help tab inside less tab
+                    q -> to quit
+
+12) history -> show all the command pressed in history  
+                history | awk '{$1=""; print $0}' | unique -> shows unique history command 
+                history -c -> delete all the history command
+                history -w  -> to save current terminal session history to history file (~/.bash_history)
+                history -d history_commond_num  -> to delete specific history command from history
+
+13) ctrl + r  then type word -> show all history command on reverse order with word on them
+                press ctrl +r -> for findind more older command
+
+14) cut -> 
+            cut -c n- -> removes first n-1 character
+
+15) clear -> wipe display and start with fresh screen
+
+16) cp -> cp [SOURCE] [DESTINATION].  ( -r, -i, -p, -v )
+            cp *.jpg /home/kali/Pictures
+                    wildcard characters:-
+                            1) * -> maches any sequence of character
+                            2) ? -> matches any single character
+                            3) [] -> matches any one of the character enclosed in[]
+            cp -r folder1 folder2 -> copy all files and folder from folder1 to folder2 (recursive)
+            cp -i file1 file2 -> promote for confirmation before overwritting  (interactive)
+            cp -p -> also copy metadata (modified date and all) -> preserving flag
+
+17) mv -> used to rename or move files or directory (-t , -i , -b . -v)
+            mv file.txt file_updated.txt
+            mv file_1 file_2 /somedirectory 
+            mv -t /somedirectory file_1 file_2 -> allow to mention dest folder first
+            mv -i source_file destination_directory -> promote for confirmation before overwritting  (interactive)
+            mv -b file1 directory_with_file1 -> create a backup also if file is overwritting with name file1~
+            mv -v file1 file2 /somedirectory -> print details of status 
+
+18) mkdir -> make directory inside current directory
+            mkdir folder1 folder2
+            mkdir -p ./folder1/folder2  -> create nested directory
+
+19) rm -> remove files and directory
+            rm file.txt 
+            rmdir folder -> remove empty directory
+            rm -r folder -> also remove non empty directory
+            rm -f file.txt -> remove write protected file also 
+
+20) find -> find files from a path -> find [path] [expression]
+            find /home/kali -name puppies.jpg
+            find                -iname puppies.jpg -> for case insensitive
+            find                -type d -name config -> find only directory
+            find                -type f -name '*.jpg' -> find only file                
+            find                        -size +100M -> find file larger than 100mb
+            find                        -size -10k -> find file smaller than 10kb (c -> byte , k -> kb , M , G)                         
+            find                -mtime -7 -> Modified in the last 7 days
+            find                -mtime +30 ->  Not modified in over 30 days
+            find                -type f -name *.tmp time +7 -exec  rm {} \; -> delete all tmp file older than 7 days
+
+21) locate *.png -> searches a pre-built database of filenames, much faster than find but not always up to date
+
+22) which python3 -> which tells you where an executable lives in your PATH
+
+23) help :-
+           help echo
+           find --help
+
+24) grep -> help to filter pattern
+            grep -F -- '-type f' -> find all results which contain exact -type f 
+                    -- -> tells flag end here 
+
+25) man echo -> print manual
+
+26) whatis cat -> tells what is the purpose of cat command in one line
+
+27) exit 
+
+28) logout
+
+29) alias -> we can give our shortcut name to command with flag 
+            alias ll='ls -la' -> to give a alias temp for currents ession
+
+            permanently make alias :-
+                            1) Open the file in a text editor: nano ~/.bashrc
+                            2) Add your alias definition to the file, just as you typed it 
+                               on the command line:
+                                                    alias ll='ls -la'
+                                                    alias update='sudo apt update && sudo apt upgrade'
+                            3) Save the file and exit the editor.
+                            4) For the changes to take effect, you must either close and 
+                               reopen your terminal or tell the shell to reload the 
+                               configuration file using the source command:
+                                        source ~/.bashrc
+            unalias ll  -> remove alias ll 
+

@@ -1,0 +1,8 @@
+1) Bash -> Bourne again shell
+2) username@hostname:current_directory$  -> kali@kali:~/Desktop/linux
+                        ~ -> current home directory -> /home/kali
+                        $ -> the shell is ready to take input
+3) echo $shell -> show current shell name -> /bin/bash
+4) In linux everything is treated as file
+            / -> root directory 
+
