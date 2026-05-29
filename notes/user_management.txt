@@ -1,0 +1,38 @@
+1) Every user on a Linux system is assigned a personal home directory, typically located at /home/username.
+2) system identify use with uid(user id) and gid (group id).
+3) Groups are collections of users, making it easier to manage permissions for multiple accounts at once.
+4) sudo cat /etc/shadow -> contain username and encypted password of user
+
+5) sudo cat /etc/passwd -> The mapping between usernames and UIDs is stored in the /etc/passwd file,
+        root:x:0:0:root:/root:/bin/bash
+            Username: The login name of the user (e.g., root).
+            Password: A placeholder for the user's encrypted password.
+                    An x indicates the encrypted password is in the /etc/shadow file.
+                    A * (asterisk) means the account is locked and cannot be used for login.
+                    A blank field means the user has no password.
+                User ID (UID): The unique numerical identifier for the user
+            Group ID (GID): The numerical identifier for the user's primary group.
+            GECOS Field: A comment field that traditionally holds extra information 
+            Home Directory: The absolute path to the user's home directory (e.g., /root).
+            Default Shell: The user's default command-line interpreter, which is executed
+                            upon login (e.g., /bin/bash).
+
+6) sudo su -> change to root user
+        su piysuh -> change to specific user piysuh
+        exit -> to come out from those user
+7) /etc/sudoers ->This file lists the users and groups who are granted permission
+    to run commands as the superuser.        
+         sudo visudo /etc/sudoers -> modify it safely
+8)  The uid and gid of root user is 0   
+
+9) /etc/group -> contain group configuration
+            $ cat /etc/group
+                root:*:0:pete
+                Group Name: The unique name of the group.
+    Group Password: This field is a legacy feature and is rarely used.
+    Group ID (GID): A unique numerical identifier for the group.
+    List of Users: A comma-separated list of usernames that are members of this group.
+
+In the example root:*:0:pete, the group name is root, there is no password, the GID is 0, and the user pete is a member.
+
+``      Add any user seprated with , in sudo group in /etc/group and the yuser can now use sudo    

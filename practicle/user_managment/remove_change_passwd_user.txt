@@ -1,0 +1,14 @@
+1) remove password of a linux user :-
+        1) replace x with blank for user password in /etc/passwd
+                init -> piyush:x:1001:1001:piyush kumar,67:/home/piyush:/bin/bash
+                final -> piyush::1001:1001:piyush kumar,67:/home/piyush:/bin/bash
+        2) replace encypted passwd from /etc/shadow for user to blank
+                init ->piyush:$y$j9T$gtrZ4IIoo5jtpvOIqQ0H00$.7YREuqXNbHrO8yApXWihjm6vpahI52h2oCf3Ej7zn0:20602:0:99999:7:::
+                final -> piyush::20602:0:99999:7:::
+
+2) replace other user password by your user
+        1) replace victim user passwd hash to attacker passwd hash
+        
+        or
+   use -> sudo passwd username
+        

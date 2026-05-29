@@ -1,0 +1,10 @@
+1) sudo cat /etc/shadow -> contain user passwd hash
+2) sudo cat /etc/passwd -> contain user info 
+3) /etc/sudoers -> contain all users with superadmin permission
+4) /etc/group -> contain info abt group
+5) sudo su 
+6) su user -> login within terminal to that user
+7) sudo useradd username / sudo adduser username-> add new user
+8) sudo passwd user -> change user passwd
+9) sudo userdel user -> delete user
+                     -r -> also delete home directory
