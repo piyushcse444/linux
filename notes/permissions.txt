@@ -1,0 +1,103 @@
+1) ls -l 
+        drwxr-xr-x
+            -   d -> directory
+            -   - -> file
+            Permission order:
+            -   first -> user (owner)
+            -   second -> group
+            -   third -> others
+
+2) Changing Permission
+        1) Symbolic Way
+                chmod u+x myfile
+                    -   u -> user
+                    -   g -> group
+                    -   o -> other
+            Operators:
+                    -   + -> give permission
+                    -   - -> remove permission
+            Permissions:
+                    -   r -> read
+                    -   w -> write
+                    -   x -> execute  
+
+        2) Using Numerical Mode
+            chmod 765 myfile
+            Binary mapping:
+                    -   7 -> 111 -> r, w, x -> user
+                    -   6 -> 110 -> r, w -> group
+                    -   5 -> 101 -> r, x -> others
+
+        3) Changing Owner and Group of a File
+                    1) Make new_user owner of file:
+                            sudo chown new_user myfile
+                    2) Change group ownership:
+                            sudo chgrp whales myfile
+                            This assigns the group of myfile to group whales.
+
+        4) Change Default Permission at File Creation (umask)
+                    1) umask 021
+                        -   take away no permission from user
+                        -   take away write permission from group
+                        -   take away execute permission from others
+
+                    2) A new file is normally created with permission 666.
+                        Formula:
+                            New_permission = 666 & ~umask
+                                                Example:
+                                                666 & ~021 = 646
+                                                Binary explanation:
+                                                021 = 000 010 001
+                                                ~021 = 111 101 110
+                                                666 & 756 = 646
+
+        5) setuid
+            This bit allows a program to run as if the current user is the owner.
+            runs with owner permission.
+                Example: /usr/bin/passwd
+                        passwd lets a user change their password.
+                        It needs to update:
+                                -   /etc/passwd
+                                -   /etc/shadow
+            These files are owned by root and normal users cannot modify them
+            directly.
+
+            So the executable is given setuid permission so that it runs with root
+            privileges during execution.
+                Example:
+                        -rwsr-xr-x 1 root root ... /usr/bin/passwd
+                    Here:
+                            -   s in user execute position -> setuid enabled
+                            To give setuid permission:
+                                1.  sudo chmod u+s myfile
+                                2.  sudo chmod 4755 myfile
+
+        6) setgid
+            This bit allows a program to run as if it were a member of a group.
+            To give setgid permission:
+                1.  sudo chmod g+s myfile
+                2.  sudo chmod 2755 myfile
+
+        7) Real UID vs Effective UID
+            -   Real UID -> original user ID
+            -   Effective UID -> user ID used during execution/running process
+            Example:
+                If server process is started by root:
+                    -   real uid may be user
+                    -   effective uid may become root
+
+        8) Sticky Bit
+            Used mainly on a directory.
+            Purpose:
+                Restricts file deletion.
+                Common example:
+                     /tmp
+                With sticky bit:
+                    -   users can create, execute own and every user file 
+                    -   but can't able to edit or delete any other user file
+                    -   only file owner (or root) can delete their own files
+                Typical permission:
+                    drwxrwxrwt
+                    To give sticky bit:
+                        1.  sudo chmod +t mydir
+                        2.  sudo chmod 1777 mydir

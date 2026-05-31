@@ -1,10 +1,39 @@
-1) sudo cat /etc/shadow -> contain user passwd hash
-2) sudo cat /etc/passwd -> contain user info 
-3) /etc/sudoers -> contain all users with superadmin permission
-4) /etc/group -> contain info abt group
-5) sudo su 
-6) su user -> login within terminal to that user
-7) sudo useradd username / sudo adduser username-> add new user
-8) sudo passwd user -> change user passwd
-9) sudo userdel user -> delete user
-                     -r -> also delete home directory
+user management files 
+    1) sudo cat /etc/shadow -> contain user passwd hash
+    2) sudo cat /etc/passwd -> contain user info 
+    3) /etc/sudoers -> contain all users with superadmin permission
+    4) /etc/group -> contain info abt group
+
+userr management command
+    1) sudo su 
+    2) su user -> login within terminal to that user
+    3) sudo useradd username / sudo adduser username-> add new user
+    4) sudo passwd user -> change user passwd
+    5) sudo userdel user -> delete user
+                        -r -> also delete home directory
+
+Permission
+
+check current logedin user, id,group
+    1) whoami -> print user
+    2) id -> show the id of current logedin user
+    3) groups -> shows all the groups this user is in
+
+add user in group
+    1) sudo usermod -aG piyush kali  -> -a → append (keep existing groups)
+                                        -G → supplementary groups    
+
+change permission of a file 
+    1) chmod ugo+rwx test1.txt  0r  chmod 777 test1.txt
+    2) chown piyush test1.txt -> change test1.txt to user piyush
+    3) chgrp piyush tet1.txt -> change test1.txt to group piyush
+    4) umask -> check default permission at file creation -> umask 022 -> cahnge default permission
+                default permission = 666 & (~umask)
+    5) sudo chmod 4755 myfile , sudo chmod u+s myfile -> setuid
+                -> this permission runs this file as file owner user privillage
+    6) sudo chmod 2755 myfile , sudo chmod g+s myfile -> sergid
+                -> this permission runs this file as file oener group privillage            
+    7) sudo chmod 1777 mydir , sudo chmod +t mydir -> sticky bit
+                            -> users can create,edit,execute every other file or folder
+                            -> but can't able to delete other user file
+                            -> only file owner (or root) can delete their own files
