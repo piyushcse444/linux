@@ -31,6 +31,8 @@
 5) take input from stdin:
         read name; echo $name
         read -p "Enter your full name; " name; echo "your name is "$name
+        read -sp 'Enter password: ' password ; echo; echo 'Password stored.' 
+                -> s ->supress the charcter as user type
 
 6) conditional (if)
             if [ $a -gt 10 ]
@@ -79,13 +81,23 @@
         $1 $2 $3
 
         Special vars:
+                        Variable	Meaning
+                        $0	        script name
+                        $1	        first arg
+                        $#	        number of args
+                        $@	        all args
+                        $$	            PID    
 
-    Variable	Meaning
-    $0	        script name
-    $1	        first arg
-    $#	        number of args
-    $@	        all args
-    $$	            PID    
+        eg :- 
+                #!/bin/bash
+                 echo "Hello, $1! You are $2 years old."
+
+                 Run it:
+                    $ ./greet.sh pete 30
+                    output:-
+                    Hello, pete! You are 30 years old.
+
+                
 
 12)  File Tests
         -f  file exists
