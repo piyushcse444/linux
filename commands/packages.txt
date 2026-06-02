@@ -1,0 +1,22 @@
+1) pacakge manager -> debian (,deb) , red hat pacakage manager (.rpm)
+            . they also install dependencies automatically
+
+2) package repository:-
+        → Repositories are curated collections of packages for a distro
+        → apt update refreshes the list of available packages from repos
+        → Third-party repos (PPAs) can be added to extend available software
+
+3) archiving(tar) -> it is is the process of combining multiple files and 
+                        directories into a single file, known as an archive        
+   compressing(gzip) -> it is the process of reducing the size of a file  \
+
+   gzip mycoolfile  -> compress mycoolfile returns mycoolfile.gz
+   gunzip mycoolfile.gz -> uncompress mycolfile.gz
+        
+   tar cvf myarchive.tar file1 file2 directory1 -> to create a new archive.
+            c-> create  a new archive
+            v -> verbos node
+            f -> file. which specifoed name of archive file        
+    tar czvf myarchive.tar.gz file1 file2 directory1 :-
+            z -> tells tar to use gzip for compression.
+            to create a compressed archive, which is a common way to compress tar gz files:                  

@@ -1,0 +1,132 @@
+1) #!/bin/bash -> shebang ( which inteprator most use)
+        eg :-
+            #!/bin/bash
+            echo "piyush"
+
+2) varible creation
+        a=10 -> without any space
+        a=piyush -> read = $a
+
+3) everything is string untill we use ((a+5))-> airthmetic expression
+        a=10; echo $a+1 -> 10+1
+        a=10; echo $((a+1)) -> 11
+
+4) datatype :- 
+        i) int 
+        ii) float :-
+                echo "3.14+1" | bc -l -> basic calculator
+        iii) string
+        iv) boolean :-
+                    flag=true; if $flag; then echo yes ; fi 
+                    0 = success / true
+                    non-zero = false/failure    
+        v) list :-
+                    nums=(1 2 3)
+                    1) echo ${nums[i]} -> print i th element
+                    2) echo ${nums[@]} -> print every elem in list
+                    3) echo ${#nums[@]} -> length of list
+                        eg :-
+                                for i in ${nums[@]} ; do echo $i ; done
+
+5) take input from stdin:
+        read name; echo $name
+        read -p "Enter your full name; " name; echo "your name is "$name
+
+6) conditional (if)
+            if [ $a -gt 10 ]
+                then
+                    echo yes
+                            fi         
+
+7) loops 
+    1) (for)
+            for i in {1..5} -> {}-> no space inside curly bracket
+                do
+                    echo $i
+                done 
+
+    2) (while)
+            while [ $a -lt 5 ]
+                    do
+                        echo $a
+                        ((a++))
+                    done          
+
+8) Operators
+    1) Arithmetic
+            + - * / % **
+    2) Relational
+            -eq -ne -gt -lt -ge -le       -> integer
+            = , != , > , <                -> string 
+    3) Logical
+            && || !  
+
+9) Strings
+    1) sub-string:-
+            name="piyush kuamr" ; echo ${name:0:3}     
+
+10) function
+    1) add(){
+            echo hello
+        }         
+    2) with agrument
+        Arguments:
+            add(){
+                echo $1
+            }                                                                  
+
+11) Command Line Arguments
+        $1 $2 $3
+
+        Special vars:
+
+    Variable	Meaning
+    $0	        script name
+    $1	        first arg
+    $#	        number of args
+    $@	        all args
+    $$	            PID    
+
+12)  File Tests
+        -f  file exists
+        -d  directory exists
+        -r  readable
+        -w  writable
+        -x  executable
+        -s  non-empty
+        -e  exists
+
+        eg:- 
+            if [ -f test.txt ]
+                then
+
+13) 15. Exit Status (Very Bash-specific)
+
+Linux commands return:
+
+0 = success
+non-zero = failure
+
+Check:
+
+echo $?
+
+Example:
+
+ls test.txt
+echo $?
+
+Success:
+
+0
+
+14) comments:-
+        #
+
+15) switch case:-
+        case $a in
+            1) echo one ;;
+            2) echo two ;;
+            *) echo other ;;
+        esac
+

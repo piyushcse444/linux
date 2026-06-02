@@ -1,0 +1,44 @@
+1) Arithmetic operator :-
+        + , - , * , / , % , **(power) , / (integer in $(( )))
+        eg :- 
+            a=$((5+3)) or echo $a
+
+2) Relational/comparison operator :-
+    Numbers:
+        -eq , -ne, -gt , -lt , -ge , -le
+        eg :-
+            if [ $a -gt 10 ]; then echo "$a > 10"; fi
+
+    Strings:
+        = , != , > , <
+        eg:-
+            name = $
+            if [ $piyush = $piyush ]; echo 
+
+3)  Logical Operators :-
+        && or -a -> and
+        `  or ||       -> or
+        !        -> not      
+
+        eg :-
+            if ! [ -f test.txt ]
+            then
+                echo nofile
+            fi
+
+4) 	=	Assign
++=	arithmetic with $(( ))	Add assign
+-=	arithmetic with $(( ))	Subtract assign
+*=	arithmetic with $(( ))	Multiply assign
+/=	arithmetic with $(( ))	Divide assign
+
+5) increment / decrement
+    ((x++))
+    ((x--))
+
+6) &	&	AND
+`	`	`
+^	^	XOR
+~	~	NOT
+<<	<<	Left shift
+>>	>>	Right shift    
