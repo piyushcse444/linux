@@ -3,15 +3,46 @@
             #!/bin/bash
             echo "piyush"
 
-2) varible creation
+2)$(...)->Execute the command inside the parentheses and replace $(...) with its output.
+                eg:- 
+                     date=$(date)
+                     echo $date -> Wednesday 03 June 2026 09:28:21 PM IST
+
+3) varible creation
         a=10 -> without any space
         a=piyush -> read = $a
+        echo $a or echo "$a" -> 10
+        echo '$a' -> $a
 
-3) everything is string untill we use ((a+5))-> airthmetic expression
+4) a=/etc/*.conf  -> globs
+   echo $a ->        /etc/adduser.conf /etc/ca-certificates.conf ........
+   
+5) Command Line Arguments
+        Special vars:
+                        Variable	Meaning
+                        $0	        script name
+                        $1,$2,....	first arg, second arg .....
+                        $#	        number of args
+                        $@	        all args
+                        $$	            PID    
+                        $?              exit status of last command
+                                                        0 = success  non-zero = failure
+
+        eg :- 
+                #!/bin/bash
+                 echo "Hello, $1! You are $2 years old."
+
+                 Run it:
+                    $ ./greet.sh pete 30
+                    output:-
+                    Hello, pete! You are 30 years old.        
+
+6) everything is string untill we use ((a+5))-> airthmetic expression
         a=10; echo $a+1 -> 10+1
         a=10; echo $((a+1)) -> 11
+        file="piy" ; echo ${file}.txt -> piyu.txt
 
-4) datatype :- 
+7) datatype :- 
         i) int 
         ii) float :-
                 echo "3.14+1" | bc -l -> basic calculator
@@ -28,24 +59,30 @@
                         eg :-
                                 for i in ${nums[@]} ; do echo $i ; done
 
-5) take input from stdin:
+8) take input from stdin:
         read name; echo $name
         read -p "Enter your full name; " name; echo "your name is "$name
         read -sp 'Enter password: ' password ; echo; echo 'Password stored.' 
                 -> s ->supress the charcter as user type
 
-6) conditional (if)
+9) conditional (if)
             if [ $a -gt 10 ]
                 then
                     echo yes
                             fi         
 
-7) loops 
+10) loops 
     1) (for)
             for i in {1..5} -> {}-> no space inside curly bracket
                 do
                     echo $i
                 done 
+
+            eg :-
+                for file in /etc/*.conf; do
+                        echo "Found config: $file"
+                        done    
+
 
     2) (while)
             while [ $a -lt 5 ]
@@ -53,8 +90,9 @@
                         echo $a
                         ((a++))
                     done          
+    3) while read line; do ... done < file  -> read an dprint every line
 
-8) Operators
+11) Operators
     1) Arithmetic
             + - * / % **
     2) Relational
@@ -62,44 +100,34 @@
             = , != , > , <                -> string 
     3) Logical
             && || !  
+    4) The $(( )) syntax performs arithmetic. 
+                eg :- 
+                        a=10;echo $((a+1)) -> 11         
 
-9) Strings
+12) Strings
     1) sub-string:-
             name="piyush kuamr" ; echo ${name:0:3}     
 
-10) function
+13) function
     1) add(){
             echo hello
         }         
     2) with agrument
         Arguments:
             add(){
-                echo $1
-            }                                                                  
+                echo $1  -> first  argument passed on call
+            } 
 
-11) Command Line Arguments
-        $1 $2 $3
+            add 11 -> 11
 
-        Special vars:
-                        Variable	Meaning
-                        $0	        script name
-                        $1	        first arg
-                        $#	        number of args
-                        $@	        all args
-                        $$	            PID    
+    3)  return a value
+        add (){
+                echo $(($1 + $2))
+        }                     
+        var=$(add 12 14)
+        echo $var                                                                  
 
-        eg :- 
-                #!/bin/bash
-                 echo "Hello, $1! You are $2 years old."
-
-                 Run it:
-                    $ ./greet.sh pete 30
-                    output:-
-                    Hello, pete! You are 30 years old.
-
-                
-
-12)  File Tests
+14)  File Tests
         -f  file exists
         -d  directory exists
         -r  readable
@@ -112,30 +140,10 @@
             if [ -f test.txt ]
                 then
 
-13) 15. Exit Status (Very Bash-specific)
-
-Linux commands return:
-
-0 = success
-non-zero = failure
-
-Check:
-
-echo $?
-
-Example:
-
-ls test.txt
-echo $?
-
-Success:
-
-0
-
-14) comments:-
+15) comments:-
         #
 
-15) switch case:-
+16) switch case:-
         case $a in
             1) echo one ;;
             2) echo two ;;

@@ -1,4 +1,5 @@
 1) Arithmetic operator :-
+        use $(()) -> for any arthematic operation 
         + , - , * , / , % , **(power) , / (integer in $(( )))
         eg :- 
             a=$((5+3)) or echo $a
@@ -27,18 +28,18 @@
             fi
 
 4) 	=	Assign
-+=	arithmetic with $(( ))	Add assign
--=	arithmetic with $(( ))	Subtract assign
-*=	arithmetic with $(( ))	Multiply assign
-/=	arithmetic with $(( ))	Divide assign
+        +=	arithmetic with $(( ))	Add assign
+        -=	arithmetic with $(( ))	Subtract assign
+        *=	arithmetic with $(( ))	Multiply assign
+        /=	arithmetic with $(( ))	Divide assign
 
 5) increment / decrement
     ((x++))
     ((x--))
 
-6) &	&	AND
-`	`	`
-^	^	XOR
-~	~	NOT
-<<	<<	Left shift
->>	>>	Right shift    
+6)  &	&	AND
+    `	`	`
+    ^	^	XOR
+    ~	~	NOT
+    <<	<<	Left shift
+    >>	>>	Right shift    

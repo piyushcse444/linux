@@ -1,0 +1,1 @@
+./user_kali_script.sh: line 8: wjddqk: command not found
