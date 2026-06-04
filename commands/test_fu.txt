@@ -1,0 +1,45 @@
+1) '>' -> redirection operator.
+        It intercepts the data heading to stdout and sends it to a new destination
+        echo "piysuh" > name.txt :- override piyush in name.txt
+
+2) >> -> append in file
+
+3)  < -> stdin 
+       eg:- cat < peanuts.txt > banana.txt  
+
+4) 2> -> Represents stderr    ;   0 -> < , 1-> > , 2 -> stdin
+    cat is_file_exists > succes.txt 2> error.txt
+    cat is_file_exists &> status.txt 
+    cat is_file_exists &> /dev/null -> if we don't need to store the output
+
+5)  | -> pipe 
+        It takes the standard output (stdout) of the command on its left 
+        and uses it as the standard input (stdin) for the command on its right. 
+
+        eg :-
+            history | grep "ls"
+
+6)  tee -> read from stdin and write in both stdout and file
+           eg :-
+                history | grep cd | tee directory.txt | wc -l 
+                    -> save all cd related command and show only line count
+
+7)  env -> show all environment variable set in that session
+            
+            1) To set environment variable
+                    my_env_var=my_value
+                    export my_env_var
+            2) To view env variable 
+                    env | grep my_env_var or echo $my_env_var
+            3) To remove environment variable
+                unset my_env_var
+            4) To make env variable persistant
+                    nano ~/.bashrc -> paste (EXPORT my_env=value)
+                    source ~/.bashrc 
+            5) $PATH -> which ls -> tells the path of ls          
+                    -> just add any executable file in it and you can run it from anywhere
+
+8)
+
+
+
