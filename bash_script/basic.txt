@@ -132,7 +132,7 @@
         -d  directory exists
         -r  readable
         -w  writable
-        -x  executable
+        -x  executable  
         -s  non-empty
         -e  exists
 
