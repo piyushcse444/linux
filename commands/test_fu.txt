@@ -86,7 +86,20 @@
             -c -> shows only byte count
              
 16) nl -> numbering lines
-           nl file,txt -> add numbers in each line             
+           nl file,txt -> add numbers in each line
+
+17) grep -> searches for a pattern within a file.       
+        grep -e "-v" -e "-p"  /path/to/some/file.conf -> for more advance serach -e is used
+        grep -i  -> case insensitive
+        grep -c fox sample.txt -> count matching line
+        grep -o fox sample.txt -> show eaxct part of line that matches the pattern
+        grep -f pattern.txt sample.txt -> search multiple pattern from pattern.txt file
+        ls /somedir | grep '.txt$' -> find all file ending with .txt      
+
+12) uniq -> remove duplicate only adjacent dublicate -> sorting is required
+        sort file.txt | uniq -c  -> to count occurance of each line 
+        uniq -u file.txt -> to print only those line which is unique
+        uniq -d file.txt -> print only repeated line                    
 
 
 
