@@ -39,7 +39,54 @@
             5) $PATH -> which ls -> tells the path of ls          
                     -> just add any executable file in it and you can run it from anywhere
 
-8)
+8)  cut ->
+             1) cut -c n sample.txt -> outputs the nth character from each line of the file
+                                       cutting by character
+             2) cut -f n -d ';' sample.txt  -> first split the text with delemiter then print nth string
+                cut -f  sample.txt -> by default the delimeter is tab    
+             3) cut -c -n -> shows first n character    
+             4) cut -c n- -< shows character from n+1 th to end.
+
+9)  paste ->
+             1) paste -d ; -c sample.txt -> combine all limes with delimeter ;
+                paste -c sample.txt -> by default delimeter is tab
+
+
+10) head  -> 
+             1) head -n 12 sample.txt -> only show first 12 lines in sample.txt
+                head sample.txt -> by default it shows first 10 lines
+                head -n -12 sample.txt -> show every line execpt last 12 lines
+
+11`) tail -> 
+             1) tail -n n path -> shows last n lines
+                 tail  path -> by default it print last 10 lines
+                 tail -n -20 path -> print from 21th line to end
+             2) tail -f -n n path   -> Real-Time File Monitoring with tail -f
+                                        it(-f) waited for real time change  i.e continueous Monitoring
+12)   expand -> converts tabs character into 8 spaces
+                echo -e "my\tname\tis\tpiyush\tkumar" > expand.txt
+                expand expand.txt > output.txt
+                expand -t 30 expand.txt -> replace 30 space for 1 tab
+                cat -T output.txt
+      unexpand -> converts spaces back to tab
+                  unexpand -a result.txt
+
+13)   sort -> sort a file
+                sort file.txt -> sort in ascending order (based on string0)
+                sort -r file.txt -> sort in decending order (based on string0)
+                sort -n file.txt -> sort on the basic of number
+                sort -u file.txt -> sort and remove duplicate             
+
+14)   join and split
+
+15)  wc  -> word count
+            wc text.txt -> output -> no.of (lines, words, bytes)
+            -l -> shows only line count
+            -w -> shows only word count 
+            -c -> shows only byte count
+             
+16) nl -> numbering lines
+           nl file,txt -> add numbers in each line             
 
 
 
