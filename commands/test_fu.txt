@@ -77,7 +77,13 @@
                 sort -n file.txt -> sort on the basic of number
                 sort -u file.txt -> sort and remove duplicate             
 
-14)   join and split
+14)   split -> split a larger file into multiple smaller file
+                split file.txt -> split at every 1000 lines
+                split -b 1M file.txt file_part_ -> the splitted file name 
+                                                start with file_part_ and max_size = 1M
+                                cat file_part_* >joined_file.txt -> join
+                                md5sum file.txt == md5sum   joined_file.txt             
+                                     
 
 15)  wc  -> word count
             wc text.txt -> output -> no.of (lines, words, bytes)

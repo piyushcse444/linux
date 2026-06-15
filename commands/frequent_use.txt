@@ -1,0 +1,28 @@
+===== QUICK NOTES =====
+IFS='.' read -ra octets <<< "$ip"
+IFS='.' read -r a b c d <<< "$ip"
+tr a-z A-Z -> replace 
+tr -d 0-9 -> delete
+md5sum file -> diff file1 , file2
+split -b 1M file part_ , cat part_* > file
+grep -e "p1" -e "p2"
+cut -d ';' -f n
+head -n 10 file , head -n -10 file
+
+-----------------------
+find . -type f -name "*.txt"
+> , >> , 2>&1, &>/dev/null, | , env 
+export VAR=value, source ~/.bashrc
+sort -u, wc -l, wc -c , grep -i pattern , grep -- "-v"
+ls -altrh , pwd, cd , cat , file , vim , history, ctrl +r
+cp -r , mv , rm -rf , mkdir -p , man cat , cat --help
+alias ll='ls -altrh' , Ctrl+d , exit , chmod 777
+-----------------------
+/etc/passwd , /etc/group , /etc/shadow
+su user , passwd user
+whoami , id , groups
+-----------------------
+$VAR      variable
+${VAR}    explicit variable
+$(cmd)    command output
+=======================
