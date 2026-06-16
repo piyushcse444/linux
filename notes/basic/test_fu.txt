@@ -88,7 +88,7 @@
 15)  wc  -> word count
             wc text.txt -> output -> no.of (lines, words, bytes)
             -l -> shows only line count
-            -w -> shows only word count 
+            -w -> shows o4490 pts/1    00:00:00 bashnly word count 
             -c -> shows only byte count
              
 16) nl -> numbering lines

@@ -1,8 +1,7 @@
 ===== QUICK NOTES =====
 IFS='.' read -ra octets <<< "$ip"
 IFS='.' read -r a b c d <<< "$ip"
-tr a-z A-Z -> replace 
-tr -d 0-9 -> delete
+tr a-z A-Z -> replace , tr -d 0-9 -> delete
 md5sum file -> diff file1 , file2
 split -b 1M file part_ , cat part_* > file
 grep -e "p1" -e "p2"
@@ -11,6 +10,7 @@ head -n 10 file , head -n -10 file
 
 -----------------------
 find . -type f -name "*.txt"
+echo $shell , printf 
 > , >> , 2>&1, &>/dev/null, | , env 
 export VAR=value, source ~/.bashrc
 sort -u, wc -l, wc -c , grep -i pattern , grep -- "-v"

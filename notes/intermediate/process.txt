@@ -1,0 +1,62 @@
+1)  ps          -> current terminal processes
+    ps -e       -> all processes
+    ps -ef      -> all processes (full format)
+    ps aux      -> all processes with user, memory, CPU info  
+                        CMD/COMMAND  -> Process Name
+                        TTY -> 
+                                pts -> psedo terminal , controlling terminal 
+                                        -> process tied to that terminal
+                                ? -> daemons process -> process does not have a controlling terminal 
+                                                        and is running independently of any user session.        
+                        STAT    -> State (R,S,T,Z)
+                                        R -> Running
+                                        S -> Sleeping
+                                        T -> Stopped
+                                        Z -> Zombie
+                                        Ss -> Sleeping + Session leader
+                                        S+ -> Sleeping + Foreground process
+                                        R+ -> Running + Foreground process
+
+2)  top -> provides a real-time, dynamic view of the processes   
+
+3) /proc ->  a virtual filesystem exposing kernel and process information        
+                /proc/PID/ ->  contains details about a specific process    
+                /proc/cpuinfo and /proc/meminfo -> show hardware info    
+
+4) fork() -> creates a new identical child process
+             original process -> parent process -> ppid
+             execve () -> system call to rum another program in that child process
+
+5) ps l -> shows ppid also 
+
+6) init process :-
+                parent of all process with pid -> 1 created by kernal 
+                cannot be terminated until the system shuts down
+
+7) _exit system call -> terminate a process
+                        The parent process must acknowledge its child's termination
+                         by using the wait system call  -> 
+                                                         0 -> success integer -> failure
+
+8)  orphan process -> An orphan process is an active, running process whose parent has died. 
+                      It is adopted by init and continues to execute until it finishes.
+
+9) zombie process (Z) -> A zombie process is a dead process that has completed its execution
+                     but still has an entry in the process table. 
+                     It is waiting for its parent process to read its exit status.-> wait () call
+
+10) signal :-
+                SIGHUP (1): Hangup. Often used to tell a daemon to reload its configuration.
+                SIGINT (2): Interrupt. Sent by Ctrl-C. It's a request to terminate the process.
+                SIGKILL (9): Kill. This is an immediate, forceful termination. 
+                                   The process cannot catch, ignore, or block this signal.
+                SIGSEGV (11): Segmentation Fault. Indicates the process made an invalid memory reference.
+                SIGTERM (15): Termination. This is the standard, polite way to ask a process to terminate. 
+                                           It is the default signal sent by the kill command. 
+                                           A process can catch this signal to perform cleanup before 
+                                           exiting. This is often referred to as signal 15 linux.
+                SIGSTOP: Stop. Pauses the process. Like SIGKILL, it cannot be caught or ignored.
+
+11) kill pid -> send SIGTERM (15) -> equivalent to -> kill -15 pid
+        kill -9 pid -> SIGKILL (9) -> forceful termination
+        kill -o pid -> check if pid exist and user has permission to signal it
