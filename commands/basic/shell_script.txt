@@ -1,0 +1,41 @@
+1) #!/bin/bash
+
+2) $(command)
+
+3) a=var; echo $a
+
+4) $0 -> file name , $1,&2 -> arg , $? -> status
+
+5) $((a+5)) 
+
+6) num[@] -> print every elem , #num[@] -> length
+
+7) read -p "enter full name" name
+
+8) if [ cond ]; then ... ; fi
+
+9) for i in {1..7}; do .... ; done
+
+10) while [cond] ; do ; done
+
+11) -eq, -ne , -gt , -le -> integer
+
+12) $(name:0:3} -> substring
+
+13) fun(); { $1 ...} -> fun 11
+
+14) case $1 in; 1) echo one;; 2) echo two;; *)echo other ;; esac
+
+15) # -> comment
+
+16)    -f  file exists
+        -d  directory exists
+        -r  readable
+        -w  writable
+        -x  executable  
+        -s  non-empty
+        -e  exists
+
+        eg:- 
+            if [ -f test.txt ]
+                then
