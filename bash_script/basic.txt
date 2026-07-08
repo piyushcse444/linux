@@ -58,6 +58,7 @@
                     3) echo ${#nums[@]} -> length of list
                         eg :-
                                 for i in ${nums[@]} ; do echo $i ; done
+                    4) unset nums[2] -> delete/remove 2nd index element            
 
 8) take input from stdin:
         read name; echo $name
